@@ -5,6 +5,7 @@ import { OtherProjectsSection } from "@/components/sections/OtherProjects";
 import { ExperienceSection } from "@/components/sections/Experience";
 import { EducationSection } from "@/components/sections/Education";
 import { CertificationsSection } from "@/components/sections/Certifications";
+import { ContactSection } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -18,6 +19,10 @@ export default function Home() {
       <div className="w-full max-w-container-max mx-auto px-gutter py-xl flex flex-col gap-xl">
         <EducationSection />
         <CertificationsSection />
+      </div>
+
+      <div className="w-full max-w-container-max mx-auto px-gutter py-xl">
+        <ContactSection />
       </div>
     </main>
   );
