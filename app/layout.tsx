@@ -3,6 +3,7 @@ import { Geist, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { FooterSection } from "@/components/sections/Footer";
+import { siteConfig } from "@/lib/site";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -23,8 +24,36 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Praveen Kumar - Engineering Portfolio",
-  description: "Precision Engineering System",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  authors: [
+    {
+      name: siteConfig.author,
+      url: siteConfig.url,
+    },
+  ],
+  creator: siteConfig.author,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    creator: "@praveen",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -34,6 +63,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: siteConfig.author,
+              url: siteConfig.url,
+              sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
+              jobTitle: "Software Engineer",
+              worksFor: {
+                "@type": "Organization",
+                name: "Engineering Portfolio",
+              },
+            }),
+          }}
+        />
+      </head>
       <body className={`${inter.variable} ${geist.variable} ${jetbrainsMono.variable} antialiased font-sans bg-background text-foreground min-h-screen flex flex-col`}>
         <Navbar />
         {children}
