@@ -1,3 +1,5 @@
+import { Badge } from "@/components/ui/badge";
+
 interface ProjectTagsProps {
   tags: string[];
 }
@@ -6,12 +8,12 @@ export function ProjectTags({ tags }: ProjectTagsProps) {
   return (
     <div className="flex flex-wrap gap-2 mb-4">
       {tags.map((tag) => (
-        <span 
+        <Badge
           key={tag} 
-          className="bg-[#1a1a1a] rounded px-2 py-1 font-heading text-sm font-medium text-on-surface"
+          variant="tech"
         >
           {tag}
-        </span>
+        </Badge>
       ))}
     </div>
   );

@@ -1,4 +1,5 @@
 import { OtherProject } from "@/data/other-projects";
+import Image from "next/image";
 import { ProjectTags } from "./ProjectTags";
 import { ProjectActions } from "./ProjectActions";
 
@@ -13,11 +14,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Project Image */}
       <div className="w-full h-48 rounded-lg mb-6 overflow-hidden bg-surface-container-low border border-white/10 flex items-center justify-center relative">
         {project.image ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img 
+          <Image 
             src={project.image} 
             alt={project.imageAlt || project.title} 
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
         ) : (
           <span className="text-muted-foreground font-heading">No Image Available</span>

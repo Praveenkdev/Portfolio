@@ -10,8 +10,7 @@ export function TechBadgeList({ technologies }: TechBadgeListProps) {
       {technologies.map((tech) => (
         <Badge
           key={tech}
-          variant="outline"
-          className="px-3 py-1 bg-surface border-white/10 text-on-surface-variant font-heading"
+          variant="featured"
         >
           {tech}
         </Badge>
