@@ -13,17 +13,19 @@ export function FeaturedProjectSection() {
             Deep Learning in Medical Imaging
           </p>
         </div>
-        <a 
-          href="#" 
-          className="text-secondary font-heading text-sm font-medium flex items-center gap-1 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary rounded-sm"
-          aria-label="View full case study for Featured Project"
-        >
-          View Case Study 
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </a>
+        {featuredProject.link && (
+          <a 
+            href={featuredProject.link} 
+            className="text-secondary font-heading text-sm font-medium flex items-center gap-1 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-secondary rounded-sm"
+            aria-label="View full case study for Featured Project"
+          >
+            View Case Study 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        )}
       </div>
       
       <FeaturedProjectCard project={featuredProject} />

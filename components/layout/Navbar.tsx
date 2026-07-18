@@ -16,7 +16,7 @@ export function Navbar() {
         {/* Navigation Links (Web) */}
         <div className="hidden md:flex space-x-gutter items-center gap-6">
           <Link 
-            href="#" 
+            href="/" 
             className="text-primary font-bold border-b-2 border-secondary pb-1 font-heading text-sm hover:text-primary transition-all duration-200"
           >
             Home

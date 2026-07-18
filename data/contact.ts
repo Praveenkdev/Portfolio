@@ -25,5 +25,5 @@ export const contactData: ContactData = {
   email: "praveen@example.com",
   linkedin: "linkedin.com/in/praveen",
   github: "github.com/praveen",
-  resumeUrl: "#" // Intentionally left blank as per Stitch design placeholder
+  resumeUrl: "" // Intentionally left blank as per Stitch design placeholder
 };

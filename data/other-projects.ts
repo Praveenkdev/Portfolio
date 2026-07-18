@@ -26,8 +26,8 @@ export const otherProjectsData: OtherProject[] = [
       { label: "Solution", value: "A custom LLM orchestration layer with stateful memory." },
       { label: "Challenges", value: "Managing token limits and maintaining narrative consistency." },
     ],
-    liveDemoUrl: "#",
-    githubUrl: "#",
+    liveDemoUrl: "",
+    githubUrl: "",
   },
   {
     id: "smart-door-lock",
@@ -40,7 +40,7 @@ export const otherProjectsData: OtherProject[] = [
       { label: "Solution", value: "ESP32-based controller with AES-256 encrypted WebSocket communication." },
       { label: "Challenges", value: "Optimizing power consumption and handling unstable network states." },
     ],
-    liveDemoUrl: "#",
-    githubUrl: "#",
+    liveDemoUrl: "",
+    githubUrl: "",
   },
 ];
