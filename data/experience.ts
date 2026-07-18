@@ -1,58 +1,37 @@
 export interface Experience {
   id: string;
-  company: string;
   role: string;
-  startDate: string;
-  endDate: string;
+  company: string;
+  dateRange: string;
   description: string[];
   skills?: string[];
-  location?: string;
-  employmentType?: string;
-  companyUrl?: string;
-  companyLogo?: string;
-  achievements?: string[];
-  currentlyWorking?: boolean;
 }
 
 export const experienceData: Experience[] = [
   {
-    id: "tech-innovations-lab",
-    company: "Tech Innovations Lab",
-    role: "Full Stack Engineer",
-    startDate: "Jun 2023",
-    endDate: "Present",
+    id: "embedded-systems-intern",
+    role: "Embedded Systems Intern",
+    company: "CodeBind Technologies (Chennai)",
+    dateRange: "June 2025 – July 2025",
     description: [
-      "Architected and deployed a microservices-based analytics dashboard, reducing data query latency by 40%.",
-      "Spearheaded the migration of legacy monolithic architecture to scalable Kubernetes clusters on AWS.",
-      "Implemented comprehensive CI/CD pipelines using GitHub Actions, accelerating deployment frequency."
+      "Assisted in embedded system development.",
+      "Participated in hardware-software integration.",
+      "Tested and debugged embedded modules.",
+      "Applied structured problem-solving techniques."
     ],
-    skills: ["Distributed Systems", "AWS", "Go"],
-    currentlyWorking: true
+    skills: ["Embedded Systems", "Hardware-Software Integration", "Debugging"]
   },
   {
-    id: "system-dynamics",
-    company: "System Dynamics",
-    role: "Software Research Intern",
-    startDate: "Jan 2022",
-    endDate: "May 2023",
+    id: "data-analytics-intern",
+    role: "Data Analytics Intern",
+    company: "SkillFied Mentor (Remote)",
+    dateRange: "May 2025 – June 2025",
     description: [
-      "Developed proof-of-concept machine learning models for predictive maintenance in industrial IoT environments.",
-      "Optimized data ingestion pipelines processing high-frequency sensor data using Apache Kafka."
+      "Collected and cleaned datasets.",
+      "Performed data analysis using Google Colab and Microsoft Excel.",
+      "Built visualizations.",
+      "Improved dataset quality by identifying inconsistencies."
     ],
-    skills: ["Machine Learning", "Python", "Kafka"],
-    currentlyWorking: false
-  },
-  {
-    id: "digital-horizons",
-    company: "Digital Horizons",
-    role: "Junior Developer",
-    startDate: "Aug 2020",
-    endDate: "Dec 2021",
-    description: [
-      "Collaborated on building responsive front-end interfaces using React and modern CSS frameworks.",
-      "Wrote comprehensive unit tests, improving overall code coverage by 25%."
-    ],
-    skills: ["Frontend Architecture", "React", "Testing"],
-    currentlyWorking: false
+    skills: ["Data Analysis", "Google Colab", "Microsoft Excel", "Data Visualization"]
   }
 ];

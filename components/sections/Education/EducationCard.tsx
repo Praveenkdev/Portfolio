@@ -32,10 +32,10 @@ export function EducationCard({ education, index }: EducationCardProps) {
           <span className="font-code text-code px-xs py-base rounded w-fit flex-shrink-0 bg-surface-variant/30 text-on-surface-variant">
             {isFirst ? (
               <span className="text-secondary bg-secondary/10 px-xs py-base rounded inline-block -mx-xs -my-base">
-                {education.startDate} - {education.endDate}
+                {education.dateRange}
               </span>
             ) : (
-              `${education.startDate} - ${education.endDate}`
+              education.dateRange
             )}
           </span>
         </div>
@@ -44,13 +44,13 @@ export function EducationCard({ education, index }: EducationCardProps) {
           {education.institution}
         </p>
         
-        {education.focus && education.focus.length > 0 && (
+        {education.achievements && education.achievements.length > 0 && (
           <div className="mt-sm">
             <span className="font-label-md text-label-md text-on-surface uppercase tracking-wider block mb-xs">
               Focus
             </span>
             <div className="flex flex-wrap gap-xs">
-              {education.focus.map((item) => (
+              {education.achievements.map((item: string) => (
                 <Badge key={item} variant="tech">
                   {item}
                 </Badge>

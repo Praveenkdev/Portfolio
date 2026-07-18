@@ -1,5 +1,4 @@
-import { OtherProject } from "@/data/other-projects";
-import Image from "next/image";
+import { OtherProject, ProjectFeature } from "@/data/other-projects";
 import { ProjectTags } from "./ProjectTags";
 import { ProjectActions } from "./ProjectActions";
 
@@ -10,32 +9,18 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article className="bg-[#0a0a0a] border border-white/10 hover:border-white/30 transition-colors duration-200 rounded-xl p-6 flex flex-col h-full group">
-      
-      {/* Project Image */}
-      <div className="w-full h-48 rounded-lg mb-6 overflow-hidden bg-surface-container-low border border-white/10 flex items-center justify-center relative">
-        {project.image ? (
-          <Image 
-            src={project.image} 
-            alt={project.imageAlt || project.title} 
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        ) : (
-          <span className="text-muted-foreground font-heading">No Image Available</span>
-        )}
-      </div>
-      
+
       {/* Title */}
       <h3 className="font-heading text-3xl font-semibold text-primary mb-2 tracking-tight">
         {project.title}
       </h3>
       
       {/* Tags */}
-      <ProjectTags tags={project.tags} />
+      <ProjectTags tags={project.techStack} />
       
       {/* Features (Problem / Solution / Challenges) */}
       <div className="space-y-4 flex-grow mb-6 border-t border-white/10 pt-4 mt-2">
-        {project.features.map((feature, idx) => (
+        {project.features.map((feature: ProjectFeature, idx: number) => (
           <div key={idx}>
             <h4 className="font-heading text-sm font-medium text-muted-foreground uppercase tracking-wider mb-1">
               {feature.label}

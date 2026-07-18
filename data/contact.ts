@@ -22,8 +22,10 @@ export interface ContactData {
 }
 
 export const contactData: ContactData = {
-  email: "praveen@example.com",
-  linkedin: "linkedin.com/in/praveen",
+  email: "praveen2004india@gmail.com",
+  phone: "7010335981",
+  location: "Chennai – 600078",
+  linkedin: "linkedin.com/in/praveen-kumar-e",
   github: "github.com/praveen",
-  resumeUrl: "" // Intentionally left blank as per Stitch design placeholder
+  resumeUrl: "" 
 };

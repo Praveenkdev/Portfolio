@@ -11,63 +11,69 @@ export interface SkillCategory {
 
 export const skillsData: SkillCategory[] = [
   {
-    title: "Frontend",
-    icon: "desktop_windows",
+    title: "Languages",
+    icon: "code",
     skills: [
-      { name: "React", iconPrefix: "Re" },
-      { name: "Next.js", iconPrefix: "Nx" },
-      { name: "Tailwind CSS", iconPrefix: "Tw" },
-      { name: "TypeScript", iconPrefix: "Ts" },
-    ],
-  },
-  {
-    title: "Backend",
-    icon: "dns",
-    skills: [
-      { name: "Node.js", iconPrefix: "No" },
       { name: "Python", iconPrefix: "Py" },
-      { name: "Django", iconPrefix: "Dj" },
-      { name: "PostgreSQL", iconPrefix: "Pg" },
+      { name: "JavaScript", iconPrefix: "Js" },
+      { name: "HTML", iconPrefix: "Ht" },
+      { name: "CSS", iconPrefix: "Cs" },
     ],
   },
   {
-    title: "Artificial Intelligence",
+    title: "AI / ML",
     icon: "neurology",
     skills: [
       { name: "PyTorch", iconPrefix: "Pt" },
-      { name: "TensorFlow", iconPrefix: "Tf" },
-      { name: "Scikit-learn", iconPrefix: "Sk" },
-      { name: "Computer Vision", iconPrefix: "Cv" },
+      { name: "NumPy", iconPrefix: "Np" },
+      { name: "Diffusion Models (DDPM)", iconPrefix: "Dm" },
+      { name: "OpenAI API", iconPrefix: "Oa" },
     ],
   },
   {
-    title: "Databases",
+    title: "Web Development",
+    icon: "web",
+    skills: [
+      { name: "RESTful APIs", iconPrefix: "Ra" },
+      { name: "Asynchronous Programming", iconPrefix: "Ap" },
+      { name: "Environment Configuration", iconPrefix: "Ec" },
+    ],
+  },
+  {
+    title: "Database",
     icon: "database",
     skills: [
-      { name: "MongoDB", iconPrefix: "Mg" },
-      { name: "Redis", iconPrefix: "Rd" },
       { name: "MySQL", iconPrefix: "My" },
-      { name: "Firebase", iconPrefix: "Fb" },
+      { name: "SQLite", iconPrefix: "Sq" },
     ],
   },
   {
     title: "Embedded Systems",
     icon: "memory",
     skills: [
-      { name: "C", iconPrefix: "C" },
-      { name: "C++", iconPrefix: "C+" },
       { name: "Arduino", iconPrefix: "Ar" },
-      { name: "Raspberry Pi", iconPrefix: "Rp" },
+      { name: "Circuit Design", iconPrefix: "Cd" },
+      { name: "Hardware-Software Integration", iconPrefix: "Hs" },
     ],
   },
   {
-    title: "Developer Tools",
+    title: "Tools & Platforms",
     icon: "build",
     skills: [
       { name: "Git", iconPrefix: "Gt" },
-      { name: "Docker", iconPrefix: "Dk" },
-      { name: "AWS", iconPrefix: "Aw" },
-      { name: "Linux", iconPrefix: "Lx" },
+      { name: "GitHub", iconPrefix: "Gh" },
+      { name: "Google Colab", iconPrefix: "Gc" },
+      { name: "Microsoft Excel", iconPrefix: "Me" },
+      { name: "VS Code", iconPrefix: "Vs" },
+    ],
+  },
+  {
+    title: "Soft Skills",
+    icon: "groups",
+    skills: [
+      { name: "Problem Solving", iconPrefix: "Ps" },
+      { name: "Teamwork", iconPrefix: "Tw" },
+      { name: "Communication", iconPrefix: "Co" },
     ],
   },
 ];

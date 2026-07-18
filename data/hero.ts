@@ -1,14 +1,14 @@
 export const heroData = {
-  name: "Praveen Kumar",
-  title: "Full Stack Developer building AI-powered applications, intelligent software systems, and modern web experiences.",
-  introduction: "I enjoy solving real-world engineering problems through Full Stack Development, Artificial Intelligence, and Embedded Systems. I focus on building practical, scalable, and user-friendly software solutions while continuously learning modern technologies.",
+  name: "Praveen Kumar E",
+  title: "Final-year B.Tech ECE Student | Full-Stack Web Developer | AI & Embedded Systems Enthusiast",
+  introduction: "Final-year B.Tech Electronics and Communication Engineering student with hands-on experience in full-stack web development, deep learning, and embedded systems. Passionate about building intelligent applications using Python, PyTorch, JavaScript, and modern web technologies. Comfortable building complete projects from AI research to embedded hardware systems. Fast learner who adapts quickly across technical domains.",
   technologies: [
     "Python",
-    "JavaScript",
-    "React",
     "PyTorch",
+    "JavaScript",
+    "HTML",
+    "CSS",
     "MySQL",
-    "Git",
     "Arduino"
   ]
 };

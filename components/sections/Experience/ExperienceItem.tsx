@@ -19,7 +19,7 @@ export function ExperienceItem({ experience, index }: ExperienceItemProps) {
         isEven ? "md:flex-row" : "md:flex-row-reverse"
       )}
     >
-      <TimelineMarker isActive={experience.currentlyWorking} />
+      <TimelineMarker isActive={false} />
       
       {/* Date Side */}
       <div 
@@ -31,7 +31,7 @@ export function ExperienceItem({ experience, index }: ExperienceItemProps) {
         )}
       >
         <span className="font-code text-code text-on-surface-variant block md:inline-block">
-          {experience.startDate} - {experience.endDate}
+          {experience.dateRange}
         </span>
       </div>
       

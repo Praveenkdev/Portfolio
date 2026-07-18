@@ -2,38 +2,27 @@ export interface Certification {
   id: string;
   title: string;
   icon: string;
-  issuer?: string;
-  issueDate?: string;
-  expiryDate?: string;
-  credentialId?: string;
-  verificationUrl?: string;
-  skills?: string[];
-  badgeImage?: string;
-  status?: string;
-  category?: string;
-  providerLogo?: string;
-  displayOrder?: number;
 }
 
 export const certificationsData: Certification[] = [
   {
-    id: "aws-solutions-architect",
-    title: "AWS Certified Solutions Architect",
-    icon: "cloud"
+    id: "python-full-stack",
+    title: "Python Full Stack — SLA Institute (January 2026)",
+    icon: "code",
   },
   {
-    id: "deep-learning-coursera",
-    title: "Deep Learning Specialization (Coursera)",
-    icon: "psychology"
+    id: "ai-ml-industrial-robots",
+    title: "AI and ML Tools for Industrial Robots — Value Added Course (March 2024)",
+    icon: "neurology",
   },
   {
-    id: "professional-scrum-master",
-    title: "Professional Scrum Master I",
-    icon: "group_work"
+    id: "web-dev-internship",
+    title: "Web Development Internship Certificate — SkillFied Mentor (June 2025)",
+    icon: "web",
   },
   {
-    id: "gcp-data-engineer",
-    title: "Google Cloud Professional Data Engineer",
-    icon: "database"
-  }
+    id: "embedded-systems-internship",
+    title: "Embedded Systems Internship Certificate — CodeBind Technologies (July 2025)",
+    icon: "memory",
+  },
 ];
