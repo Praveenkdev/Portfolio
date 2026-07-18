@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
+import { FooterSection } from "@/components/sections/Footer";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${geist.variable} ${jetbrainsMono.variable} antialiased font-sans bg-background text-foreground min-h-screen flex flex-col`}>
         <Navbar />
         {children}
+        <FooterSection />
       </body>
     </html>
   );
