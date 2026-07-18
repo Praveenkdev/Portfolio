@@ -1,10 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useScrollPosition } from "@/hooks/use-scroll";
+import { cn } from "@/lib/utils";
 
 export function Navbar() {
+  const scrollY = useScrollPosition();
+  const scrolled = scrollY > 50;
+
   return (
-    <nav className="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-white/10">
-      <div className="flex justify-between items-center h-16 px-gutter max-w-[1200px] mx-auto">
+    <nav 
+      className={cn(
+        "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out",
+        scrolled 
+          ? "bg-surface/90 backdrop-blur-md border-b border-white/10 shadow-sm py-2" 
+          : "bg-transparent border-b-transparent py-4"
+      )}
+    >
+      <div className="flex justify-between items-center px-gutter max-w-[1200px] mx-auto">
         {/* Brand */}
         <Link 
           href="/" 

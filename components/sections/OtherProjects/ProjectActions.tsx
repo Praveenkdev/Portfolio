@@ -1,4 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
+import { ExternalLink, Code } from "lucide-react";
 
 interface ProjectActionsProps {
   liveDemoUrl?: string;
@@ -14,7 +15,7 @@ export function ProjectActions({ liveDemoUrl, githubUrl }: ProjectActionsProps) 
           className={`${buttonVariants({ variant: "default" })} font-heading text-sm px-4 py-2 group`}
           aria-label="View Live Demo"
         >
-          <span className="material-symbols-outlined text-[16px]" aria-hidden="true">open_in_new</span> 
+          <ExternalLink className="w-4 h-4" aria-hidden="true" /> 
           Live Demo
         </a>
       )}
@@ -25,7 +26,7 @@ export function ProjectActions({ liveDemoUrl, githubUrl }: ProjectActionsProps) 
           className={`${buttonVariants({ variant: "outline" })} border-primary text-primary hover:bg-surface-container font-heading text-sm px-4 py-2 gap-1 group`}
           aria-label="View Source Code on GitHub"
         >
-          <span className="material-symbols-outlined text-[16px]" aria-hidden="true">code</span> 
+          <Code className="w-4 h-4" aria-hidden="true" /> 
           GitHub
         </a>
       )}

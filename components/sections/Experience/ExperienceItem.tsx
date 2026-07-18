@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils"
 import { Experience } from "@/data/experience"
 import { Badge } from "@/components/ui/badge"
 import { TimelineMarker } from "./TimelineMarker"
+import { ChevronRight } from "lucide-react"
 
 interface ExperienceItemProps {
   experience: Experience;
@@ -70,12 +71,7 @@ export function ExperienceItem({ experience, index }: ExperienceItemProps) {
           >
             {experience.description.map((desc, i) => (
               <li key={i} className="flex items-start">
-                <span 
-                  className="material-symbols-outlined text-[16px] mr-2 mt-1 text-outline-variant" 
-                  style={{ fontVariationSettings: "'FILL' 1" }}
-                >
-                  chevron_right
-                </span>
+                <ChevronRight className="w-4 h-4 mr-2 mt-1 text-outline-variant shrink-0" />
                 <p className="font-body-md text-body-md text-on-surface">
                   {desc}
                 </p>

@@ -1,5 +1,6 @@
 import * as React from "react"
 import { contactData } from "@/data/contact"
+import { Mail, Link, Terminal, FileText } from "lucide-react"
 
 export function ContactInfo() {
   return (
@@ -20,9 +21,7 @@ export function ContactInfo() {
               className="flex items-center gap-sm p-sm rounded border border-[rgba(255,255,255,0.05)] hover:border-[rgba(255,255,255,0.3)] hover:bg-surface-container-low transition-all group/link focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-secondary-container"
               aria-label={`Email me at ${contactData.email}`}
             >
-              <span className="material-symbols-outlined text-outline group-hover/link:text-primary transition-colors" aria-hidden="true">
-                mail
-              </span>
+              <Mail className="w-5 h-5 text-outline group-hover/link:text-primary transition-colors" aria-hidden="true" />
               <span className="font-code text-code text-on-surface group-hover/link:text-primary transition-colors">
                 {contactData.email}
               </span>
@@ -37,9 +36,7 @@ export function ContactInfo() {
               className="flex items-center gap-sm p-sm rounded border border-[rgba(255,255,255,0.05)] hover:border-[rgba(255,255,255,0.3)] hover:bg-surface-container-low transition-all group/link focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-secondary-container"
               aria-label="Visit my LinkedIn profile"
             >
-              <span className="material-symbols-outlined text-outline group-hover/link:text-primary transition-colors" aria-hidden="true">
-                link
-              </span>
+              <Link className="w-5 h-5 text-outline group-hover/link:text-primary transition-colors" aria-hidden="true" />
               <span className="font-code text-code text-on-surface group-hover/link:text-primary transition-colors">
                 {contactData.linkedin}
               </span>
@@ -54,9 +51,7 @@ export function ContactInfo() {
               className="flex items-center gap-sm p-sm rounded border border-[rgba(255,255,255,0.05)] hover:border-[rgba(255,255,255,0.3)] hover:bg-surface-container-low transition-all group/link focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-secondary-container"
               aria-label="Visit my GitHub profile"
             >
-              <span className="material-symbols-outlined text-outline group-hover/link:text-primary transition-colors" aria-hidden="true">
-                code
-              </span>
+              <Terminal className="w-5 h-5 text-outline group-hover/link:text-primary transition-colors" aria-hidden="true" />
               <span className="font-code text-code text-on-surface group-hover/link:text-primary transition-colors">
                 {contactData.github}
               </span>
@@ -74,7 +69,7 @@ export function ContactInfo() {
             className="w-full flex items-center justify-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-primary hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label="Download my resume as a PDF"
           >
-            <span className="material-symbols-outlined" aria-hidden="true">picture_as_pdf</span>
+            <FileText className="w-5 h-5" aria-hidden="true" />
             Download Resume
           </a>
         </div>

@@ -4,7 +4,7 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   author: "Praveen Kumar E",
   links: {
-    github: "https://github.com/praveen",
-    linkedin: "https://linkedin.com/in/praveen-kumar-e",
+    github: "https://github.com/praveenkdev",
+    linkedin: "https://www.linkedin.com/in/praveenkdev",
   }
 };

@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Send } from "lucide-react"
 
 export function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,7 +24,7 @@ export function ContactForm() {
             <Input 
               id="name" 
               name="name" 
-              placeholder="John Doe" 
+              placeholder="Your Name" 
               type="text" 
               className={inputClasses} 
               required
@@ -35,7 +36,7 @@ export function ContactForm() {
             <Input 
               id="email" 
               name="email" 
-              placeholder="john@example.com" 
+              placeholder="your.email@example.com" 
               type="email" 
               className={inputClasses}
               required
@@ -48,7 +49,7 @@ export function ContactForm() {
           <Textarea 
             id="message" 
             name="message" 
-            placeholder="How can we collaborate?" 
+            placeholder="Tell me about your project or opportunity..." 
             rows={6} 
             className={`${inputClasses} resize-none min-h-[140px]`}
             required
@@ -61,7 +62,7 @@ export function ContactForm() {
             className="flex items-center gap-xs px-md py-sm bg-primary text-background rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Send Message
-            <span className="material-symbols-outlined text-[18px]" aria-hidden="true">send</span>
+            <Send className="w-[18px] h-[18px]" aria-hidden="true" />
           </button>
         </div>
       </form>

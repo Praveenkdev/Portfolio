@@ -21,11 +21,13 @@ export interface ContactData {
   devto?: string;
 }
 
+import { siteConfig } from "@/lib/site";
+
 export const contactData: ContactData = {
   email: "praveen2004india@gmail.com",
   phone: "7010335981",
   location: "Chennai – 600078",
-  linkedin: "linkedin.com/in/praveen-kumar-e",
-  github: "github.com/praveen",
+  linkedin: siteConfig.links.linkedin.replace("https://", ""),
+  github: siteConfig.links.github.replace("https://", ""),
   resumeUrl: "" 
 };
