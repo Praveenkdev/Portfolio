@@ -9,6 +9,18 @@ export interface Experience {
 
 export const experienceData: Experience[] = [
   {
+    id: "analog-intelligence-intern",
+    role: "AI & Full Stack Developer Intern",
+    company: "Analog Intelligence",
+    dateRange: "Present",
+    description: [
+      "Developing intelligent AI voice agents and full-stack web applications.",
+      "Building scalable software architectures using Python, React, and Node.js.",
+      "Focusing on high performance and exceptional user experience."
+    ],
+    skills: ["AI Development", "Full Stack Web Development", "Voice Technology", "Python", "React", "Node.js"]
+  },
+  {
     id: "embedded-systems-intern",
     role: "Embedded Systems Intern",
     company: "CodeBind Technologies (Chennai)",

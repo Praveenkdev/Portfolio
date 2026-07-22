@@ -4,6 +4,10 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { FooterSection } from "@/components/sections/Footer";
 import { siteConfig } from "@/lib/site";
+import { MotionProvider } from "@/components/animations";
+import { GlobalBackground } from "@/components/layout/GlobalBackground";
+import { LoadingScreen } from "@/components/layout/LoadingScreen";
+import { CustomCursor } from "@/components/layout/CustomCursor";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -82,10 +86,15 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${geist.variable} ${jetbrainsMono.variable} antialiased font-sans bg-background text-foreground min-h-screen flex flex-col`}>
-        <Navbar />
-        {children}
-        <FooterSection />
+      <body className={`${inter.variable} ${geist.variable} ${jetbrainsMono.variable} antialiased font-sans text-foreground min-h-screen flex flex-col cursor-auto md:cursor-none`}>
+        <CustomCursor />
+        <LoadingScreen />
+        <GlobalBackground />
+        <MotionProvider>
+          <Navbar />
+          {children}
+          <FooterSection />
+        </MotionProvider>
       </body>
     </html>
   );

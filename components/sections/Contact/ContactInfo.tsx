@@ -1,10 +1,11 @@
 import * as React from "react"
 import { contactData } from "@/data/contact"
 import { Mail, Link, Terminal, FileText } from "lucide-react"
+import { MotionCard } from "@/components/animations"
 
 export function ContactInfo() {
   return (
-    <div className="lg:col-span-5 bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] rounded-lg p-md flex flex-col justify-between relative overflow-hidden group">
+    <MotionCard className="lg:col-span-5 bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] rounded-lg p-md flex flex-col justify-between relative overflow-hidden group">
       {/* Subtle Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-surface-container-high/50 to-transparent opacity-50 z-0"></div>
       
@@ -60,20 +61,30 @@ export function ContactInfo() {
         </div>
       </div>
       
-      {contactData.resumeUrl && (
-        <div className="relative z-10 mt-auto">
+      <div className="relative z-10 mt-auto">
+        {contactData.resumeUrl ? (
           <a 
             href={contactData.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
+            download
             className="w-full flex items-center justify-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md hover:bg-primary hover:text-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             aria-label="Download my resume as a PDF"
           >
             <FileText className="w-5 h-5" aria-hidden="true" />
             Download Resume
           </a>
-        </div>
-      )}
-    </div>
+        ) : (
+          <button 
+            disabled
+            title="Resume coming soon"
+            className="w-full flex items-center justify-center gap-xs px-md py-sm border border-primary text-primary rounded-lg font-label-md text-label-md transition-colors opacity-70 cursor-not-allowed"
+          >
+            <FileText className="w-5 h-5" aria-hidden="true" />
+            Resume (Soon)
+          </button>
+        )}
+      </div>
+    </MotionCard>
   )
 }

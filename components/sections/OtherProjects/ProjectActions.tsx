@@ -12,6 +12,8 @@ export function ProjectActions({ liveDemoUrl, githubUrl }: ProjectActionsProps) 
       {liveDemoUrl && (
         <a 
           href={liveDemoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className={`${buttonVariants({ variant: "default" })} font-heading text-sm px-4 py-2 group`}
           aria-label="View Live Demo"
         >
@@ -23,6 +25,8 @@ export function ProjectActions({ liveDemoUrl, githubUrl }: ProjectActionsProps) 
       {githubUrl && (
         <a 
           href={githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className={`${buttonVariants({ variant: "outline" })} border-primary text-primary hover:bg-surface-container font-heading text-sm px-4 py-2 gap-1 group`}
           aria-label="View Source Code on GitHub"
         >

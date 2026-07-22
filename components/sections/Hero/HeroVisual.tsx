@@ -1,62 +1,90 @@
+"use client";
+
+import { MotionImage, Floating } from "@/components/animations";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useBootState } from "@/hooks/use-boot-state";
+
 export function HeroVisual() {
+  const isBooted = useBootState();
   return (
-    <div className="lg:col-span-5 hidden lg:flex justify-center items-center relative h-[400px] scale-90">
-      {/* Constructing an abstract visual using div elements to represent a network/system */}
-      <div className="relative w-full h-full animate-float">
-        {/* Central Hub */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-card rounded-xl border border-secondary/30 shadow-[0_0_40px_rgba(174,198,255,0.15)] flex items-center justify-center z-20 backdrop-blur-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-secondary" aria-hidden="true">
-            <path d="m21 16-9 5-9-5"/>
-            <path d="m21 8-9 5-9-5"/>
-            <path d="m3 8 9-5 9 5"/>
-            <path d="M12 22V13"/>
-          </svg>
+    <div className="lg:col-span-5 hidden lg:flex justify-center items-center relative h-[450px] w-full">
+      <Floating amplitude={10} duration={6} className="relative w-full h-full flex items-center justify-center">
+        
+        {/* Glow behind portrait */}
+        <motion.div 
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/20 rounded-full blur-[80px] z-0 pointer-events-none"
+          animate={{ opacity: [0.3, 0.6, 0.3], scale: [0.9, 1.1, 0.9] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-500/10 rounded-full blur-[100px] z-0 pointer-events-none"
+          animate={{ opacity: [0.2, 0.5, 0.2], scale: [1, 1.05, 1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
+
+        {/* Portrait Image Container */}
+        <div className="relative w-full max-w-[380px] aspect-[4/5] z-10 rounded-3xl overflow-hidden bg-gradient-to-br from-[#0a0f25] via-[#060a17] to-[#02040a] shadow-[0_0_50px_rgba(6,182,212,0.15)] border border-white/10 group-hover:border-cyan-500/30 transition-colors duration-500">
+          
+          {/* AI Themed Background Elements (Behind Transparent Portrait) */}
+          <div className="absolute inset-0 z-0">
+            {/* Ambient Glows */}
+            <motion.div 
+              className="absolute -top-10 -right-10 w-40 h-40 bg-purple-500/30 rounded-full blur-[50px]"
+              animate={{ opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div 
+              className="absolute -bottom-10 -left-10 w-40 h-40 bg-cyan-500/30 rounded-full blur-[50px]"
+              animate={{ opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            />
+            
+            {/* Neural Network Lines */}
+            <svg className="absolute inset-0 w-full h-full opacity-40" xmlns="http://www.w3.org/2000/svg">
+              <line x1="20%" y1="20%" x2="50%" y2="40%" stroke="#06b6d4" strokeWidth="1" strokeDasharray="3 3" />
+              <line x1="80%" y1="30%" x2="50%" y2="40%" stroke="#8b5cf6" strokeWidth="1" strokeDasharray="3 3" />
+              <line x1="50%" y1="40%" x2="40%" y2="70%" stroke="#6366f1" strokeWidth="1" strokeDasharray="3 3" />
+              <line x1="40%" y1="70%" x2="70%" y2="80%" stroke="#06b6d4" strokeWidth="1" strokeDasharray="3 3" />
+              
+              <circle cx="20%" cy="20%" r="2" fill="#06b6d4" />
+              <circle cx="80%" cy="30%" r="2" fill="#8b5cf6" />
+              <circle cx="50%" cy="40%" r="3" fill="#ffffff" />
+              <circle cx="40%" cy="70%" r="2" fill="#6366f1" />
+              <circle cx="70%" cy="80%" r="2" fill="#06b6d4" />
+            </svg>
+
+            {/* Floating Particles */}
+            <div className="absolute top-[30%] left-[25%] w-1 h-1 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(6,182,212,0.8)]"></div>
+            <div className="absolute top-[60%] right-[30%] w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute bottom-[20%] left-[40%] w-1 h-1 bg-indigo-400 rounded-full animate-pulse shadow-[0_0_8px_rgba(99,102,241,0.8)]" style={{ animationDelay: '0.5s' }}></div>
+          </div>
+
+          <motion.div
+            className="absolute inset-0 w-full h-full z-10 transition-transform duration-700 hover:scale-[1.02]"
+            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            animate={isBooted ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.95, y: 10 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <Image
+              src="/images/hero-portrait.png"
+              alt="Praveen Kumar E - AI Engineer"
+              fill
+              className="object-cover object-[50%_15%]"
+              sizes="(max-width: 1024px) 100vw, 800px"
+              quality={100}
+              unoptimized={true}
+              priority
+            />
+          </motion.div>
         </div>
         
-        {/* Nodes */}
-        <div className="absolute top-10 left-1/4 w-16 h-16 bg-[#201f1f] rounded-lg border border-white/10 flex items-center justify-center z-10">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground" aria-hidden="true">
-            <ellipse cx="12" cy="5" rx="9" ry="3"/>
-            <path d="M3 5V19A9 3 0 0 0 21 19V5"/>
-            <path d="M3 12A9 3 0 0 0 21 12"/>
-          </svg>
-        </div>
-        
-        <div className="absolute top-20 right-10 w-20 h-20 bg-[#201f1f] rounded-lg border border-white/10 flex items-center justify-center z-10">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground" aria-hidden="true">
-            <polyline points="4 17 10 11 4 5"/>
-            <line x1="12" x2="20" y1="19" y2="19"/>
-          </svg>
-        </div>
-        
-        <div className="absolute bottom-16 left-10 w-20 h-20 bg-[#201f1f] rounded-lg border border-white/10 flex items-center justify-center z-10">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground" aria-hidden="true">
-            <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-            <line x1="9" x2="9" y1="3" y2="21"/>
-            <line x1="15" x2="15" y1="3" y2="21"/>
-            <line x1="3" x2="21" y1="9" y2="9"/>
-            <line x1="3" x2="21" y1="15" y2="15"/>
-          </svg>
-        </div>
-        
-        <div className="absolute bottom-24 right-1/4 w-16 h-16 bg-[#201f1f] rounded-lg border border-white/10 flex items-center justify-center z-10">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-muted-foreground" aria-hidden="true">
-            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
-          </svg>
-        </div>
-        
-        {/* Connecting Lines (SVG overlay) */}
-        <svg className="absolute inset-0 w-full h-full z-0 opacity-40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <line stroke="rgba(174,198,255,0.5)" strokeDasharray="4 4" strokeWidth="2" x1="50%" x2="25%" y1="50%" y2="20%"></line>
-          <line stroke="rgba(174,198,255,0.5)" strokeDasharray="4 4" strokeWidth="2" x1="50%" x2="80%" y1="50%" y2="30%"></line>
-          <line stroke="rgba(174,198,255,0.5)" strokeDasharray="4 4" strokeWidth="2" x1="50%" x2="20%" y1="50%" y2="80%"></line>
-          <line stroke="rgba(174,198,255,0.5)" strokeDasharray="4 4" strokeWidth="2" x1="50%" x2="70%" y1="50%" y2="70%"></line>
-        </svg>
-        
-        {/* Floating Data Packets */}
-        <div className="absolute top-[35%] left-[37%] w-2 h-2 bg-secondary rounded-full animate-pulse-glow shadow-[0_0_10px_rgba(174,198,255,0.8)]"></div>
-        <div className="absolute bottom-[35%] right-[37%] w-2 h-2 bg-secondary rounded-full animate-pulse-glow shadow-[0_0_10px_rgba(174,198,255,0.8)]" style={{ animationDelay: "1s" }}></div>
-      </div>
+        {/* Floating Data Packets / Nodes around the portrait to blend with the background */}
+        <div className="absolute top-[20%] left-[10%] w-3 h-3 bg-cyan-400 rounded-full animate-pulse-glow shadow-[0_0_15px_rgba(6,182,212,0.8)] z-20"></div>
+        <div className="absolute bottom-[25%] right-[10%] w-2 h-2 bg-indigo-400 rounded-full animate-pulse-glow shadow-[0_0_15px_rgba(99,102,241,0.8)] z-20" style={{ animationDelay: "1s" }}></div>
+        <div className="absolute top-[60%] right-[5%] w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse-glow shadow-[0_0_10px_rgba(59,130,246,0.8)] z-20" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute bottom-[10%] left-[20%] w-2.5 h-2.5 bg-purple-400 rounded-full animate-pulse-glow shadow-[0_0_15px_rgba(168,85,247,0.8)] z-20" style={{ animationDelay: "0.5s" }}></div>
+      </Floating>
     </div>
   );
 }

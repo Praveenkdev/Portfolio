@@ -4,6 +4,7 @@ import * as React from "react"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Send } from "lucide-react"
+import { MotionCard, MotionButton } from "@/components/animations"
 
 export function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
@@ -14,7 +15,7 @@ export function ContactForm() {
   const inputClasses = "bg-black border border-outline-variant rounded px-sm py-sm text-on-surface font-code text-code focus:outline-none focus:border-secondary-container focus:ring-1 focus:ring-secondary-container transition-colors";
 
   return (
-    <div className="lg:col-span-7 bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] rounded-lg p-md">
+    <MotionCard className="lg:col-span-7 bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] rounded-lg p-md h-full">
       <h2 className="font-headline-md text-headline-md text-primary mb-lg">Send a Message</h2>
       
       <form className="space-y-md" onSubmit={handleSubmit}>
@@ -57,15 +58,15 @@ export function ContactForm() {
         </div>
         
         <div className="flex justify-end pt-sm">
-          <button 
+          <MotionButton 
             type="submit" 
             className="flex items-center gap-xs px-md py-sm bg-primary text-background rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Send Message
             <Send className="w-[18px] h-[18px]" aria-hidden="true" />
-          </button>
+          </MotionButton>
         </div>
       </form>
-    </div>
+    </MotionCard>
   )
 }

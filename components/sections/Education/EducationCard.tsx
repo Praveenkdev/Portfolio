@@ -2,6 +2,7 @@ import * as React from "react"
 import { Education } from "@/data/education"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
+import { MotionCard } from "@/components/animations"
 
 interface EducationCardProps {
   education: Education;
@@ -24,7 +25,7 @@ export function EducationCard({ education, index }: EducationCardProps) {
       />
       
       {/* Content Card */}
-      <div className="flex flex-col gap-xs bg-surface-container-low border border-outline-variant/20 p-md rounded-lg shadow-sm hover:border-outline-variant/50 transition-colors">
+      <MotionCard className="flex flex-col gap-xs bg-surface-container-low border border-outline-variant/20 p-md rounded-lg shadow-sm hover:border-outline-variant/50 transition-colors">
         <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-xs">
           <h3 className="font-headline-md text-headline-md text-primary">
             {education.degree}
@@ -58,7 +59,7 @@ export function EducationCard({ education, index }: EducationCardProps) {
             </div>
           </div>
         )}
-      </div>
+      </MotionCard>
     </div>
   )
 }

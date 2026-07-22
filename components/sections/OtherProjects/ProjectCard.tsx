@@ -1,6 +1,7 @@
 import { OtherProject, ProjectFeature } from "@/data/other-projects";
 import { ProjectTags } from "./ProjectTags";
 import { ProjectActions } from "./ProjectActions";
+import { MotionCard } from "@/components/animations";
 
 interface ProjectCardProps {
   project: OtherProject;
@@ -8,7 +9,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="bg-[#0a0a0a] border border-white/10 hover:border-white/30 transition-colors duration-200 rounded-xl p-6 flex flex-col h-full group">
+    <MotionCard className="bg-[#0a0a0a] border border-white/10 hover:border-white/30 transition-colors duration-200 rounded-xl p-6 flex flex-col h-full group">
 
       {/* Title */}
       <h3 className="font-heading text-3xl font-semibold text-primary mb-2 tracking-tight">
@@ -38,6 +39,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
         githubUrl={project.githubUrl} 
       />
       
-    </article>
+    </MotionCard>
   );
 }

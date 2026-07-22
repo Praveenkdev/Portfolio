@@ -1,20 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { useScrollPosition } from "@/hooks/use-scroll";
+import { useActiveSection } from "@/hooks/use-active-section";
 import { cn } from "@/lib/utils";
+
+import { motion } from "framer-motion";
 
 export function Navbar() {
   const scrollY = useScrollPosition();
   const scrolled = scrollY > 50;
+  
+  const activeSection = useActiveSection(["projects", "experience", "skills", "education", "contact"]);
 
   return (
     <nav 
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out",
         scrolled 
-          ? "bg-surface/90 backdrop-blur-md border-b border-white/10 shadow-sm py-2" 
+          ? "bg-[#050816]/70 backdrop-blur-xl border-b border-white/5 shadow-sm py-3" 
           : "bg-transparent border-b-transparent py-4"
       )}
     >
@@ -22,56 +27,49 @@ export function Navbar() {
         {/* Brand */}
         <Link 
           href="/" 
-          className="font-heading text-xl md:text-2xl font-bold text-primary dark:text-primary tracking-tighter"
+          className="font-heading text-xl md:text-2xl font-bold text-primary dark:text-primary tracking-tighter hover:text-cyan-400 transition-colors duration-300"
         >
           Praveen Kumar
         </Link>
 
         {/* Navigation Links (Web) */}
-        <div className="hidden md:flex space-x-gutter items-center gap-6">
-          <Link 
-            href="/" 
-            className="text-primary font-bold border-b-2 border-secondary pb-1 font-heading text-sm hover:text-primary transition-all duration-200"
-          >
-            Home
-          </Link>
-          <Link 
-            href="#projects" 
-            className="text-muted-foreground hover:text-primary transition-colors font-heading text-sm duration-200"
-          >
-            Projects
-          </Link>
-          <Link 
-            href="#experience" 
-            className="text-muted-foreground hover:text-primary transition-colors font-heading text-sm duration-200"
-          >
-            Experience
-          </Link>
-          <Link 
-            href="#skills" 
-            className="text-muted-foreground hover:text-primary transition-colors font-heading text-sm duration-200"
-          >
-            Skills
-          </Link>
-          <Link 
-            href="#education" 
-            className="text-muted-foreground hover:text-primary transition-colors font-heading text-sm duration-200"
-          >
-            Education
-          </Link>
-          <Link 
-            href="#contact" 
-            className="text-muted-foreground hover:text-primary transition-colors font-heading text-sm duration-200"
-          >
-            Contact
-          </Link>
+        <div className="hidden md:flex items-center space-x-1">
+          {["home", "projects", "experience", "skills", "education", "contact"].map((section) => {
+            const isActive = activeSection === section || (section === "home" && activeSection === "");
+            return (
+              <Link
+                key={section}
+                href={section === "home" ? "/" : `#${section}`}
+                className={cn(
+                  "relative font-heading text-sm capitalize px-4 py-1.5 transition-colors duration-200 rounded-full",
+                  isActive ? "text-cyan-50 font-bold" : "text-muted-foreground hover:text-primary"
+                )}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="nav-pill"
+                    className="absolute inset-0 bg-white/5 border border-cyan-500/20 rounded-full shadow-[0_0_15px_rgba(6,182,212,0.15)] z-[-1]"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                {section}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Trailing Action */}
         <div className="hidden md:block">
-          <Button variant="default" size="sm" className="font-heading text-sm rounded-lg px-4">
-            Resume
-          </Button>
+          <a 
+            href="/resume/Praveen_Kumar_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download
+            aria-label="Download my resume as a PDF"
+            className={cn(buttonVariants({ variant: "outline", size: "sm" }), "font-heading")}
+          >
+            Download CV
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}

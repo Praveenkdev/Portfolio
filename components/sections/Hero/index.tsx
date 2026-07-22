@@ -1,10 +1,13 @@
 import { HeroBackground } from "./HeroBackground";
 import { HeroContent } from "./HeroContent";
 import { HeroVisual } from "./HeroVisual";
+import { MotionSection } from "@/components/animations";
+
+import { ScrollIndicator } from "./ScrollIndicator";
 
 export function Hero() {
   return (
-    <section className="flex-grow pt-[80px] md:pt-[120px] flex flex-col relative overflow-hidden">
+    <MotionSection className="flex-grow pt-[80px] md:pt-[120px] flex flex-col relative overflow-hidden">
       <HeroBackground />
       
       <div className="max-w-[1200px] mx-auto px-6 md:px-gutter w-full relative z-10 pb-xl">
@@ -13,6 +16,7 @@ export function Hero() {
           <HeroVisual />
         </div>
       </div>
-    </section>
+      <ScrollIndicator />
+    </MotionSection>
   );
 }

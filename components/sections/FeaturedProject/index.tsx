@@ -1,9 +1,10 @@
 import { featuredProject } from "@/data/featured-project";
 import { FeaturedProjectCard } from "./FeaturedProjectCard";
+import { MotionSection } from "@/components/animations";
 
 export function FeaturedProjectSection() {
   return (
-    <section className="max-w-[1200px] mx-auto px-6 md:px-gutter w-full relative z-10 pb-20">
+    <MotionSection id="projects" className="max-w-[1200px] mx-auto px-6 md:px-gutter w-full relative z-10 pb-20">
       <div className="flex justify-between items-end mb-6">
         <div>
           <h3 className="font-heading text-xl font-medium text-primary tracking-tight">
@@ -29,6 +30,6 @@ export function FeaturedProjectSection() {
       </div>
       
       <FeaturedProjectCard project={featuredProject} />
-    </section>
+    </MotionSection>
   );
 }

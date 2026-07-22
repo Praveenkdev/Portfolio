@@ -29,5 +29,5 @@ export const contactData: ContactData = {
   location: "Chennai – 600078",
   linkedin: siteConfig.links.linkedin.replace("https://", ""),
   github: siteConfig.links.github.replace("https://", ""),
-  resumeUrl: "" 
+  resumeUrl: "/resume/Praveen_Kumar_Resume.pdf" 
 };

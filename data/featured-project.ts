@@ -1,8 +1,8 @@
 export const featuredProject = {
   id: "featured-project",
-  title: "Multimodal Brain Tumor Segmentation Using Diffusion Model",
-  description: "Architected a 3D Conditional Denoising Diffusion Probabilistic Model (DDPM) in PyTorch to automate segmentation of Glioblastoma tumors from multi-modal BraTS 2020 MRI scans. Built a full-stack web application enabling real-time MRI (.nii) processing with interactive multi-axial visualization and segmented output. Designed an end-to-end pipeline from MRI input through AI inference to browser-based visualization.",
-  techStack: ["Python", "PyTorch", "NumPy"],
-  link: "",
+  title: "Multimodal Brain Tumor Segmentation",
+  description: "An AI-powered deep learning project for multimodal brain tumor segmentation using diffusion models and medical MRI datasets. The project focuses on accurate tumor segmentation, medical image processing, and AI-assisted healthcare applications.",
+  techStack: ["Python", "PyTorch", "Deep Learning", "Diffusion Models", "Medical Imaging", "AI"],
+  link: "https://github.com/Praveenkdev/Multimodal-Brain-Tumor.git",
   featured: true,
 };

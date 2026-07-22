@@ -1,7 +1,7 @@
 export const heroData = {
   name: "Praveen Kumar E",
-  title: "Final-year B.Tech ECE Student | Full-Stack Web Developer | AI & Embedded Systems Enthusiast",
-  introduction: "Final-year B.Tech Electronics and Communication Engineering student with hands-on experience in full-stack web development, deep learning, and embedded systems. Passionate about building intelligent applications using Python, PyTorch, JavaScript, and modern web technologies. Comfortable building complete projects from AI research to embedded hardware systems. Fast learner who adapts quickly across technical domains.",
+  title: "AI Engineer | Full Stack Developer | B.Tech (ECE) Graduate",
+  introduction: "I am an AI Engineer and Full Stack Developer with a B.Tech in Electronics & Communication Engineering, currently working as an AI & Full Stack Developer Intern at Analog Intelligence. I build AI-powered applications, intelligent voice agents, and scalable full-stack web solutions using Python, JavaScript, React, Node.js, Supabase, and modern AI technologies. I enjoy solving real-world problems through innovative software, intuitive user experiences, and high-performance system design.",
   technologies: [
     "Python",
     "PyTorch",

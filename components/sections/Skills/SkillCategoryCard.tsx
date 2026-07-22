@@ -1,6 +1,7 @@
 import { SkillCategory } from "@/data/skills"
 import { Code, Brain, Globe, Database, Cpu, Wrench, Users } from "lucide-react";
 import { SkillItem } from "./SkillItem";
+import { MotionCard } from "@/components/animations";
 
 interface SkillCategoryCardProps {
   category: SkillCategory;
@@ -8,7 +9,7 @@ interface SkillCategoryCardProps {
 
 export function SkillCategoryCard({ category }: SkillCategoryCardProps) {
   return (
-    <div className="border border-white/10 bg-[#0a0a0a] transition-all duration-300 ease-in-out hover:border-white/30 hover:bg-[#111111] rounded-lg p-6 flex flex-col h-full group">
+    <MotionCard className="border border-white/10 bg-[#0a0a0a] rounded-lg p-6 flex flex-col h-full group">
       <div className="flex items-center gap-2 mb-4">
         {category.icon === "code" && <Code className="w-5 h-5 text-secondary" />}
         {category.icon === "neurology" && <Brain className="w-5 h-5 text-secondary" />}
@@ -33,6 +34,6 @@ export function SkillCategoryCard({ category }: SkillCategoryCardProps) {
           />
         ))}
       </ul>
-    </div>
+    </MotionCard>
   );
 }

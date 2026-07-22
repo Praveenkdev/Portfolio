@@ -1,18 +1,28 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { heroData } from "@/data/hero";
 import { HeroActions } from "./HeroActions";
-import { StaggerContainer, StaggerItem } from "@/components/animations/Reveal";
+import { Stagger as StaggerContainer, StaggerItem, Typewriter } from "@/components/animations";
+import { motion } from "framer-motion";
 
 export function HeroContent() {
   return (
-    <StaggerContainer className="lg:col-span-7 flex flex-col space-y-md">
+    <StaggerContainer waitForBoot staggerDelay={0.2} className="lg:col-span-7 flex flex-col space-y-md">
       {/* Heading */}
       <StaggerItem>
-        <h1 className="font-heading text-4xl md:text-6xl text-primary tracking-tight mb-2 font-bold">
-          {heroData.name}
+        <h1 className="font-heading text-4xl md:text-6xl tracking-tight mb-2 font-bold">
+          <motion.span
+            className="bg-clip-text text-transparent bg-gradient-to-r from-primary via-cyan-300 to-primary bg-[length:200%_auto] inline-block"
+            initial={{ backgroundPosition: "200% center" }}
+            animate={{ backgroundPosition: "0% center" }}
+            transition={{ duration: 2.5, ease: "easeOut", delay: 1 }}
+          >
+            {heroData.name}
+          </motion.span>
         </h1>
-        <h2 className="font-heading text-xl md:text-3xl text-muted-foreground font-semibold leading-snug">
-          {heroData.title}
+        <h2 className="font-heading text-xl md:text-3xl text-muted-foreground font-semibold leading-snug h-[1.2em]">
+          <Typewriter text={heroData.title} delay={0.6} />
         </h2>
       </StaggerItem>
       

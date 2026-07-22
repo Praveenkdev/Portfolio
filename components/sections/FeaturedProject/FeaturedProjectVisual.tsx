@@ -1,19 +1,53 @@
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
 export function FeaturedProjectVisual() {
+  const [imgSrc, setImgSrc] = useState("/images/brain-tumor-cover.png");
+
   return (
-    <div className="md:w-1/2 bg-[#2a2a2a] h-[300px] md:h-auto relative overflow-hidden flex items-center justify-center">
-      {/* Abstract visualization of brain scan segmentation */}
-      <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" aria-hidden="true"></div>
+    <div className="md:w-1/2 bg-[#050505] min-h-[300px] md:min-h-[400px] h-full relative overflow-hidden flex items-center justify-center group z-0">
       
-      <div className="w-48 h-48 rounded-full border-4 border-white/5 flex items-center justify-center relative pointer-events-none" aria-hidden="true">
-        <div className="w-32 h-32 rounded-full border-4 border-secondary/20 relative animate-pulse-glow">
-          <div className="absolute inset-0 bg-secondary/10 rounded-full blur-md"></div>
-          
-          {/* Mock segmentation overlay */}
-          <svg className="w-full h-full absolute inset-0 text-error opacity-60" viewBox="0 0 100 100" aria-hidden="true">
-            <path className="animate-pulse" d="M40,30 Q60,20 70,40 T50,70 T30,50 Z" fill="currentColor"></path>
-          </svg>
-        </div>
-      </div>
+      {/* Full-width Image Background */}
+      <motion.div
+        className="absolute inset-0 w-full h-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Image
+          src={imgSrc}
+          alt="Brain Tumor Segmentation Project Cover"
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority
+          onError={() => setImgSrc("/images/projects/realistic_mri_segmentation.png")}
+        />
+      </motion.div>
+
+      {/* Floating Badges */}
+      <motion.div 
+        className="absolute top-[15%] left-[5%] md:left-[10%] bg-black/60 backdrop-blur-md border border-white/10 text-xs text-white/80 px-3 py-1.5 rounded-full font-mono flex items-center gap-2 shadow-xl z-20"
+        initial={{ y: 0 }}
+        animate={{ y: [-5, 5, -5] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+        Input: .nii.gz
+      </motion.div>
+      
+      <motion.div 
+        className="absolute bottom-[15%] right-[5%] md:right-[10%] bg-black/60 backdrop-blur-md border border-cyan-500/30 text-xs text-cyan-400 px-3 py-1.5 rounded-full font-mono flex items-center gap-2 shadow-xl z-20"
+        initial={{ y: 0 }}
+        animate={{ y: [5, -5, 5] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      >
+        <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
+        Mask: DDPM
+      </motion.div>
     </div>
   );
 }
