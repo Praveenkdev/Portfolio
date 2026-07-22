@@ -4,6 +4,7 @@ import { MotionImage, Floating } from "@/components/animations";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useBootState } from "@/hooks/use-boot-state";
+import heroImg from "@/public/images/hero-portrait.png";
 
 export function HeroVisual() {
   const isBooted = useBootState();
@@ -67,7 +68,7 @@ export function HeroVisual() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <Image
-              src="/images/hero-portrait.png"
+              src={heroImg}
               alt="Praveen Kumar E - AI Engineer"
               fill
               className="object-cover object-[50%_15%]"

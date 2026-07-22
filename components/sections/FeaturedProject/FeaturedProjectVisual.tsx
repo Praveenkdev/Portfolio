@@ -3,9 +3,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import brainTumorCover from "@/public/images/brain-tumor-cover.png";
+import realisticMri from "@/public/images/projects/realistic_mri_segmentation.png";
 
 export function FeaturedProjectVisual() {
-  const [imgSrc, setImgSrc] = useState("/images/brain-tumor-cover.png");
+  const [imgSrc, setImgSrc] = useState<any>(brainTumorCover);
 
   return (
     <div className="md:w-1/2 bg-[#050505] min-h-[300px] md:min-h-[400px] h-full relative overflow-hidden flex items-center justify-center group z-0">
@@ -24,7 +26,7 @@ export function FeaturedProjectVisual() {
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 50vw"
           priority
-          onError={() => setImgSrc("/images/projects/realistic_mri_segmentation.png")}
+          onError={() => setImgSrc(realisticMri)}
         />
       </motion.div>
 
