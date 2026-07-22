@@ -66,15 +66,21 @@ export function Typewriter({ text, delay = 0, className = "" }: TypewriterProps)
   }, [text, delay, prefersReducedMotion, cursorControls, glowControls]);
 
   return (
-    <span className={`inline-flex items-center ${className}`}>
-      <motion.span animate={glowControls}>{typedText}</motion.span>
-      {(!isFinished || isTyping) && !prefersReducedMotion && (
-        <motion.span 
-          animate={cursorControls}
-          initial={{ opacity: 0 }}
-          className="inline-block w-[2px] h-[1em] ml-1 bg-current"
-        />
-      )}
+    <span className={`relative inline-block ${className}`}>
+      {/* Invisible placeholder reserves the exact space so the layout doesn't shift or overlap */}
+      <span className="invisible pointer-events-none" aria-hidden="true">{text}</span>
+      
+      {/* Absolute positioned typing text */}
+      <span className="absolute inset-0 left-0 top-0 flex flex-wrap items-start text-left">
+        <motion.span animate={glowControls}>{typedText}</motion.span>
+        {(!isFinished || isTyping) && !prefersReducedMotion && (
+          <motion.span 
+            animate={cursorControls}
+            initial={{ opacity: 0 }}
+            className="inline-block w-[2px] h-[1em] ml-[1px] bg-current translate-y-[0.15em]"
+          />
+        )}
+      </span>
     </span>
   );
 }

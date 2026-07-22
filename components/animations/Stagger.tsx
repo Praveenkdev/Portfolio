@@ -13,6 +13,7 @@ export interface StaggerProps extends HTMLMotionProps<"div"> {
   replay?: ReplayStrategy;
   threshold?: number;
   staggerDelay?: number;
+  initialDelay?: number;
   waitForBoot?: boolean;
 }
 
@@ -21,6 +22,7 @@ export function Stagger({
   replay = "always", 
   threshold = 0.1, 
   staggerDelay = 0.1,
+  initialDelay = 0,
   waitForBoot = false,
   className,
   ...props 
@@ -36,10 +38,11 @@ export function Stagger({
         transition: {
           ...((staggerContainerVariants.visible as any)?.transition || {}),
           staggerChildren: staggerDelay,
+          delayChildren: initialDelay,
         }
       }
     };
-  }, [staggerDelay]);
+  }, [staggerDelay, initialDelay]);
 
   // Only animate to visible if we are in view AND (if required) we have booted
   const shouldAnimate = isVisible && (!waitForBoot || isBooted);
