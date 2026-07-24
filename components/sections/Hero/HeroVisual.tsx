@@ -4,7 +4,7 @@ import { MotionImage, Floating } from "@/components/animations";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useBootState } from "@/hooks/use-boot-state";
-import heroImg from "@/public/images/hero-portrait.png";
+import heroImg from "@/public/images/hero-portrait.jpg";
 
 export function HeroVisual() {
   const isBooted = useBootState();
